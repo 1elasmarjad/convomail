@@ -1,0 +1,24 @@
+{
+  "name": "convomail",
+  "version": "1.0.0",
+  "description": "Easily build email-based AI agents in Node.js with threading and reply support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1elasmarjad/convomail.git"
+  },
+  "keywords": [
+    "email",
+    "ai",
+    "ai-agent"
+  ],
+  "author": "Jad El Asmar <jadelasmar4@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1elasmarjad/convomail/issues"
+  },
+  "homepage": "https://github.com/1elasmarjad/convomail#readme"
+}
