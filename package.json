@@ -1,5 +1,5 @@
 {
-  "name": "convomail",
+  "name": "talkkit",
   "version": "1.0.0",
   "description": "Easily build email-based AI agents in Node.js with threading and reply support.",
   "type": "module",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1elasmarjad/convomail.git"
+    "url": "git+https://github.com/1elasmarjad/talkkit.git"
   },
   "keywords": [
     "email",
@@ -26,9 +26,9 @@
   "author": "Jad El Asmar <jadelasmar4@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/1elasmarjad/convomail/issues"
+    "url": "https://github.com/1elasmarjad/talkkit/issues"
   },
-  "homepage": "https://github.com/1elasmarjad/convomail#readme",
+  "homepage": "https://github.com/1elasmarjad/talkkit#readme",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^20.11.24",
@@ -40,6 +40,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "twilio": "^5.7.1",
     "zod": "^3.24.4"
   }
 }
