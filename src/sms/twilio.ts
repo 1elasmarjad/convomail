@@ -1,8 +1,9 @@
 import Twilio from "twilio";
-import { Twilio as TwilioClient } from "twilio";
 import { type MessageInstance } from "twilio/lib/rest/api/v2010/account/message";
-import { validateRequest } from "twilio/lib/webhooks/webhooks";
+import { validateRequest } from "twilio/lib/webhooks/webhooks.js";
 import { z } from "zod";
+
+type TwilioClient = ReturnType<typeof Twilio>;
 
 const TwilioWebhookSchema = z.object({
   MessageSid: z.string(),
@@ -37,7 +38,7 @@ export type MessageContext = {
  * A response to a incoming message. A string represnts a text message to send back to the user.
  * If undefined is returned, no reply message will be sent to the user.
  */
-export type TwilioIncomingResponse = string | undefined;
+export type TwilioIncomingResponse = string | void;
 
 /**
  * A function that handles an incoming message from Twilio.
@@ -164,12 +165,7 @@ export function twilio({
   handlers: {
     POST: (request: Request) => Promise<Response>;
   };
-  send: (
-    message: string,
-    from: string,
-    to: string,
-    twilio: TwilioClient
-  ) => Promise<MessageInstance>;
+  sendSMS: (message: string, from: string, to: string) => Promise<MessageInstance>;
 } {
   const convo = new TwilioSMSConvo(
     {
@@ -180,7 +176,7 @@ export function twilio({
     options.handlerUrl
   );
 
-  const twilio = new TwilioClient(
+  const twilio = Twilio(
     options.credentials.accountSid,
     options.credentials.authToken
   );
@@ -189,6 +185,6 @@ export function twilio({
     handlers: {
       POST: (request) => convo.handlePost(request),
     },
-    send: (message, from, to) => convo.send(message, from, to, twilio),
+    sendSMS: (message, from, to) => convo.send(message, from, to, twilio),
   };
 }

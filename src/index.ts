@@ -1,1 +1,1 @@
-export * from "./sms/twilio";
+export * from "./sms/twilio.js";
